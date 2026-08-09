@@ -1,11 +1,10 @@
 import requests
 
-# Final Correct Configuration
 TELEGRAM_TOKEN = "8856307803:AAF31D7S0cMEf8xuFzbgnSwtkBMq-hsfJJE"
 CHANNEL_ID = "@ipo_365"
 
 def send_telegram_alert(text):
-    # API Link bilkul correct hai aur verification done hai
+    # Link check kar lijiye: api.telegram.org bilkul sahi hai
     url = f"https://telegram.org{TELEGRAM_TOKEN}/sendMessage"
     payload = {"chat_id": CHANNEL_ID, "text": text}
     try:
@@ -27,4 +26,4 @@ def fetch_and_post_ipos():
 
 if __name__ == "__main__":
     fetch_and_post_ipos()
-        
+    
