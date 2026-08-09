@@ -2,17 +2,25 @@ name: IPO 365 Auto Poster
 
 on:
   schedule:
-    - cron: '*/30 * * * *'
-  workflow_dispatch:
+    - cron: '30 4 * * 1-5' # Runs Mon-Fri at 10:00 AM IST
+  workflow_dispatch: # Allows manual trigger
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - uses: actions/setup-python@v4
+    - name: Checkout repository code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/actions-setup-python@v5
       with:
-        python-version: '3.x'
-    - run: pip install requests
-    - run: python start.py
-    
+        python-version: '3.10'
+
+    - name: Install required tools
+      run: |
+        pip install requests yfinance
+
+    - name: Run script
+      run: python start.py
+      
