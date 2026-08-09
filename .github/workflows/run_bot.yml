@@ -14,5 +14,5 @@ jobs:
       with:
         python-version: '3.x'
     - run: pip install requests
-    - run: python bot.py
+    - run: python start.py
     
